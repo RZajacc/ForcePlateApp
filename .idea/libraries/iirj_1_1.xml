@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="filter">
+  <library name="iirj-1.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../iirj-master/target/iirj-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Resources/Libraries/iirj-1.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -17,9 +17,9 @@
     </properties>
     <root id="root">
       <element id="archive" name="ForcePlateNew.jar">
-        <element id="library" level="project" name="commons-math" />
-        <element id="library" level="project" name="filter" />
         <element id="module-output" name="ForcePlateApp" />
+        <element id="library" level="project" name="commons-math3-3.6.1" />
+        <element id="library" level="project" name="iirj-1.1" />
       </element>
     </root>
   </artifact>
