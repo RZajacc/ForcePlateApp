@@ -1,0 +1,48 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.CheckMenuItem?>
+
+
+<BorderPane fx:controller="org.rafalzajac.Controller"
+            xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css">
+
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="Load files" onAction="#chooseFile"></MenuItem>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Save results" onAction="#saveFile"></MenuItem>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#closeProgram"></MenuItem>
+                </items>
+            </Menu>
+            <Menu text="Plot options">
+                <CheckMenuItem fx:id="COPx" text="COPx" selected="true"></CheckMenuItem>
+                <SeparatorMenuItem/>
+                <CheckMenuItem fx:id="COPy" text="COPy"></CheckMenuItem>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <left>
+        <ListView fx:id="listView"></ListView>
+
+    </left>
+    <center>
+        <LineChart fx:id="lineChart" title="Center of pressure">
+            <xAxis>
+                <NumberAxis label="Samples" fx:id="xAxis" style="-fx-stroke-width: 1px;"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="cm/s" side="LEFT" style="-fx-stroke-width: 1px;"/>
+            </yAxis>
+        </LineChart>
+    </center>
+</BorderPane>
