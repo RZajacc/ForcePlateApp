@@ -10,7 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
     <orderEntry type="library" name="iirj-1.1" level="project" />
-    <orderEntry type="library" name="javafx" level="application" />
-    <orderEntry type="library" name="javafx-swt" level="project" />
+    <orderEntry type="library" name="javaFX11" level="project" />
   </component>
 </module>
