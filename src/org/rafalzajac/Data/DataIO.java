@@ -235,8 +235,8 @@ public class DataIO {
                 double lenCOPtotal = 0;
 
                 for (int j=0; j<Subjects.get(i).getCopX().size()-1; j++){
-                    lenCOPap = lenCOPap + Math.abs(Subjects.get(i).getCopY().get(j + 1) - Subjects.get(i).getCopY().get(j));
-                    lenCOPml = lenCOPml + Math.abs(Subjects.get(i).getCopX().get(j + 1) - Subjects.get(i).getCopX().get(j));
+                    lenCOPap += Math.abs(Subjects.get(i).getCopY().get(j + 1) - Subjects.get(i).getCopY().get(j));
+                    lenCOPml += Math.abs(Subjects.get(i).getCopX().get(j + 1) - Subjects.get(i).getCopX().get(j));
                     lenCOPtotal += Math.sqrt( (Math.abs(Subjects.get(i).getCopY().get(j + 1) - Subjects.get(i).getCopY().get(j)) * Math.abs(Subjects.get(i).getCopY().get(j + 1) - Subjects.get(i).getCopY().get(j))) +
                                                 (Math.abs(Subjects.get(i).getCopX().get(j + 1) - Subjects.get(i).getCopX().get(j)) * Math.abs(Subjects.get(i).getCopX().get(j + 1) - Subjects.get(i).getCopX().get(j))));
                 }

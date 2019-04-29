@@ -1,7 +1,5 @@
 package org.rafalzajac;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
@@ -10,7 +8,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import org.rafalzajac.Data.Subject;
 import org.rafalzajac.Data.DataIO;
-
 import java.io.IOException;
 
 /**
@@ -48,58 +45,55 @@ public class Controller {
        data.processData();
 
        // == Change listener allowing to view selected subject's data == //
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Subject>() {
-            @Override
-            public void changed(ObservableValue<? extends Subject> observable, Subject oldValue, Subject newValue) {
-                if(newValue != null) {
+        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue != null) {
 
-                    Subject subject = listView.getSelectionModel().getSelectedItem();
+                Subject subject = listView.getSelectionModel().getSelectedItem();
 
-                    // ==  Defining chart series == //
-                    XYChart.Series<Number, Number> series = new XYChart.Series();
-                    XYChart.Series<Number, Number> series2 = new XYChart.Series();
-                    lineChart.setCreateSymbols(false);
-                    lineChart.setLegendVisible(false);
+                // ==  Defining chart series == //
+                XYChart.Series<Number, Number> series = new XYChart.Series();
+                XYChart.Series<Number, Number> series2 = new XYChart.Series();
+                lineChart.setCreateSymbols(false);
+                lineChart.setLegendVisible(false);
 
-                    // == Plot option displaying only COPx chart == //
-                    if(COPx.isSelected() && !COPy.isSelected()){
+                // == Plot option displaying only COPx chart == //
+                if(COPx.isSelected() && !COPy.isSelected()){
 
-                        // == Chart is always clear first so old data doesn't overlay with new one == //
-                        lineChart.getData().clear();
+                    // == Chart is always clear first so old data doesn't overlay with new one == //
+                    lineChart.getData().clear();
 
-                        // == Populating series with chosen data == //
-                        for (int i = 0; i<subject.getCopX().size(); i++){
-                            series.getData().add(new XYChart.Data<>(i, subject.getCopX().get(i)));
-                        }
-                        lineChart.getData().add(series);
+                    // == Populating series with chosen data == //
+                    for (int i = 0; i<subject.getCopX().size(); i++){
+                        series.getData().add(new XYChart.Data<>(i, subject.getCopX().get(i)));
                     }
+                    lineChart.getData().add(series);
+                }
 
-                    // == Plot option displaying only COPy chart == //
-                    if (COPy.isSelected() && !COPx.isSelected()){
+                // == Plot option displaying only COPy chart == //
+                if (COPy.isSelected() && !COPx.isSelected()){
 
-                        // == Chart is always clear first so old data doesn't overlay with new one == //
-                        lineChart.getData().clear();
+                    // == Chart is always clear first so old data doesn't overlay with new one == //
+                    lineChart.getData().clear();
 
-                        // == Populating series with chosen data == //
-                        for (int i = 0; i<subject.getCopY().size(); i++){
-                            series.getData().add(new XYChart.Data<>(i, subject.getCopY().get(i)));
-                        }
-                        lineChart.getData().add(series);
+                    // == Populating series with chosen data == //
+                    for (int i = 0; i<subject.getCopY().size(); i++){
+                        series.getData().add(new XYChart.Data<>(i, subject.getCopY().get(i)));
                     }
+                    lineChart.getData().add(series);
+                }
 
-                    // == Plot option displaying both COPx and COPy chart == //
-                    if (COPy.isSelected() && COPx.isSelected()){
+                // == Plot option displaying both COPx and COPy chart == //
+                if (COPy.isSelected() && COPx.isSelected()){
 
-                        // == Chart is always clear first so old data doesn't overlay with new one == //
-                        lineChart.getData().clear();
+                    // == Chart is always clear first so old data doesn't overlay with new one == //
+                    lineChart.getData().clear();
 
-                        // == Populating series with chosen data == //
-                        for (int i = 0; i<subject.getCopY().size(); i++){
-                            series.getData().add(new XYChart.Data<>(i, subject.getCopX().get(i)));
-                            series2.getData().add(new XYChart.Data<>(i, subject.getCopY().get(i)));
-                        }
-                        lineChart.getData().addAll(series, series2);
+                    // == Populating series with chosen data == //
+                    for (int i = 0; i<subject.getCopY().size(); i++){
+                        series.getData().add(new XYChart.Data<>(i, subject.getCopX().get(i)));
+                        series2.getData().add(new XYChart.Data<>(i, subject.getCopY().get(i)));
                     }
+                    lineChart.getData().addAll(series, series2);
                 }
             }
         });
