@@ -21,7 +21,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Authors
 
-* **Rafa³ Zaj¹c** - *Initial work* - (https://github.com/RZajacc)
+* **Rafal Zajac** - *Initial work* - (https://github.com/RZajacc)
 
 ## Acknowledgments
 
